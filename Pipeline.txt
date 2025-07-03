@@ -1,0 +1,70 @@
+Pipeline implementation:-----
+
+  1. file will come in S3
+
+  2. lambda will be called  (triggering)
+    (interview question how you used lambda)
+
+  3. lambda will trigger "step function" start
+
+  4. again a lambda will be called (second lambda)
+
+  5. second lambda will dump the "S3 data" in "RDS"
+
+**6. An email will be triggered that "S3 data dumped into RDS"
+
+  7. Again a lambda will be called (third lambda)
+
+  8. third lambda will dump "RDS data" into "S3"
+    (pick 3 columns out of 10 columns from RDS and dump in to S3)
+
+**9. Again an email will be triggered "RDS data dumped into S3"
+
+  10. Again a lambda will be called (fourth lambda)
+
+  11. fourth lambda will dump "S3 data" into "Redshift"
+
+**12. Again an email will be triggered "Data dumped into Redshift"
+
+  13. End  ( All services will be integrated)
+
+
+
+File will come in "S3"
+
+"Lambda" will be called
+
+"Lambda" will trigger "Step function"
+
+"Lambda" (2nd)
+
+Dump "S3 data" in "RDS"
+
+Email "S3 data dumped into RDS"
+
+"Lambda" (3rd)
+
+Dump "RDS data" into "S3"
+(pick 3 columns out of 10 columns from RDS and dump in to S3)
+
+Email "RDS data dumped into S3"
+
+"Lambda" (4th)
+
+Dump "S3 data" into "Redshift"
+
+Email "Data dumped into Redshift"
+
+End
+
+
+
+S3 
+Lambda
+Step function
+RDS
+SNS
+SES
+SQS
+Redshift
+Step function
